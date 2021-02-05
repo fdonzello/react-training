@@ -1,0 +1,11 @@
+.form-container {
+    padding: 24px;
+
+    >form {
+
+        input,
+        textarea {
+            margin: 8px 0;
+        }
+    }
+}

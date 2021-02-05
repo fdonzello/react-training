@@ -30,19 +30,23 @@ export function FetchNews() {
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    const loadNews = () => {
+        fetch('http://localhost:3001/news')
+            .then(r => r.json())
+            .then(items => {
+                dispatch({ type: 'loaded', payload: items })
+            });
+    }
+
     useEffect(() => {
         dispatch({ type: 'loading' });
 
         setTimeout(() =>
-            fetch('http://localhost:3001/news')
-                .then(r => r.json())
-                .then(items => {
-                    dispatch({ type: 'loaded', payload: items })
-                })
-            , 1000)
+            loadNews(), 1000)
     }, []);
 
     return (
-        <NewsList newsList={state.items} />
+        <NewsList newsList={state.items} onPostDelete={loadNews} />
     )
 }
+

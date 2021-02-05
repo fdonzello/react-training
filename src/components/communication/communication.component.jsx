@@ -19,7 +19,7 @@ export class Communication extends React.Component {
 
 
     render() {
-        if (this.state.text.length == 0) {
+        if (this.state.text.length === 0) {
             return (
                 <div>
                     <Input onChange={this.onChange} />

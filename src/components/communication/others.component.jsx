@@ -2,7 +2,9 @@ export function Input({ onChange }) {
 
     return (
         <div>
-            <input onChange={(e) => onChange(e.target.value)} />
+            <input
+                placeholder="Type something..."
+                onChange={(e) => onChange(e.target.value)} />
         </div>
     )
 }
