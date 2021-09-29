@@ -9,17 +9,9 @@
   ],
   "news": [
     {
-      "id": 2,
-      "title": "Official: Belgium now in the grip of flu epidemic",
+      "title": "Official: Belgium now in the grip of flu epidemicfdsafasdfasdfa",
       "description": "An epidemic exists when, for two weeks in a row, 157 flu diagnoses are made per 100,000 of the population – a number which is reviewed every season. In the week of 21 to 27 January, 198 per 100,000 were reported. The number is almost certain to rise in the current week, confirming the declaration of an epidemic. The first victims have been predominantly children – the usual pattern, as children have more physical contact with each other than adults, which helps the disease to spread. Typically, they are followed by parents, followed by the elderly, for whom the virus is in general more dangerous.",
-      "author": {
-        "id": 2,
-        "name": "Elly Hope"
-      },
-      "category": {
-        "id": 2,
-        "name": "Flu"
-      }
+      "id": 2
     },
     {
       "id": 3,
@@ -33,11 +25,6 @@
         "id": 3,
         "name": "Nutella!"
       }
-    },
-    {
-      "title": "test",
-      "description": "test1",
-      "id": 5
     }
   ],
   "authors": [

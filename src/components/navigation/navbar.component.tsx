@@ -18,6 +18,8 @@ export const NavBar = ({ config }: { config: NavBarProps }) => {
 
                 <ul className="uk-navbar-nav">
                     {config.routes.filter(route => route.showInNavigation).map((r, i) => <NavBarItem key={i} path={r.path} label={r.label} />)}
+
+                    <NavBarItem key={10} path="/secured" label="User Profile" />
                 </ul>
 
             </div>
