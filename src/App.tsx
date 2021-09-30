@@ -74,15 +74,8 @@ const buildNavBar = () => <NavBar config={routes} />
 const App = () => {
   const navbar = buildNavBar();
 
-  const amountValue = useSelector((state: any) => state.amount.value);
-
   return (
     <div className="App">
-
-      <h1>{amountValue}</h1>
-
-      <hr />
-
       {navbar}
 
       <Switch>
