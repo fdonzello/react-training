@@ -11,6 +11,8 @@ import { Communication } from './components/communication/communication.componen
 import { NewsForm } from './components/news/news-form.component';
 import PrivateRoute from './components/PrivateRoute';
 import { Login } from './components/login/login.component';
+import { Amount } from './components/amount/AmountComponent';
+import { useSelector } from 'react-redux';
 
 
 const routes: NavBarProps = {
@@ -57,6 +59,12 @@ const routes: NavBarProps = {
       component: <Login />,
       showInNavigation: false,
     },
+    {
+      path: "/amount",
+      label: "Bank",
+      component: <Amount />,
+      showInNavigation: true,
+    },
   ]
 }
 
@@ -66,8 +74,15 @@ const buildNavBar = () => <NavBar config={routes} />
 const App = () => {
   const navbar = buildNavBar();
 
+  const amountValue = useSelector((state: any) => state.amount.value);
+
   return (
     <div className="App">
+
+      <h1>{amountValue}</h1>
+
+      <hr />
+
       {navbar}
 
       <Switch>

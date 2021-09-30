@@ -7,10 +7,12 @@ import { Provider } from 'react-redux'
 
 import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
+import { amountReducer } from './reducers/amount.reducer';
 
 
 const store = configureStore({
   reducer: {
+    amount: amountReducer
   },
 })
 
