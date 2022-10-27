@@ -1,9 +1,9 @@
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export function News({ id, title, text, compact, onPostDelete }) {
 
     const onDelete = async () => {
-        const req = await fetch(`http://localhost:3001/news/${id}`, {
+        const req = await fetch(`http://localhost:3250/news/${id}`, {
             method: 'DELETE'
         });
 

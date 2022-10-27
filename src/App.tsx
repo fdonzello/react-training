@@ -3,7 +3,7 @@ import './App.css';
 import React, { Component, FunctionComponent } from 'react'
 import { FetchNews } from './components/fetch/fetch.component';
 
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Routes, useNavigate, } from 'react-router-dom';
 import { NavBar, NavBarProps } from './components/navigation/navbar.component';
 
 import { Hello } from './components/hello/hello.component';
@@ -12,7 +12,7 @@ import { NewsForm } from './components/news/news-form.component';
 import PrivateRoute from './components/PrivateRoute';
 import { Login } from './components/login/login.component';
 import { Amount } from './components/amount/AmountComponent';
-import { useSelector } from 'react-redux';
+import { CommunicationWithoutState } from './components/communication-without-state/communication.without-state';
 
 
 const routes: NavBarProps = {
@@ -21,6 +21,12 @@ const routes: NavBarProps = {
       path: "/",
       label: "Home",
       component: <Hello />,
+      showInNavigation: true,
+    },
+    {
+      path: "/communication-without-state",
+      label: "Communication (No state)",
+      component: <CommunicationWithoutState />,
       showInNavigation: true,
     },
     {
@@ -78,28 +84,26 @@ const App = () => {
     <div className="App">
       {navbar}
 
-      <Switch>
+      <Routes>
         {routes.routes.map((route, i) =>
-          <Route key={i} exact path={route.path}>
-            {route.component}
-          </Route>
+          <Route key={i} path={route.path} element={route.component} />
         )}
 
-        <Route path="/login" component={Login}></Route>
-        <PrivateRoute path="/secured" component={UserProfile}></PrivateRoute>
-      </Switch>
+        <Route path="/login" element={Login} />
+        <Route path="/secured" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
+      </Routes>
     </div>
   )
 }
 
 
 const UserProfile = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("token");
 
-    history.push("/")
+    navigate("/")
   }
 
   return (

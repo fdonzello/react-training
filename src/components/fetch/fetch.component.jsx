@@ -31,7 +31,7 @@ export function FetchNews() {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const loadNews = () => {
-        fetch('http://localhost:3001/news')
+        fetch('http://localhost:3250/news')
             .then(r => r.json())
             .then(items => {
                 dispatch({ type: 'loaded', payload: items })

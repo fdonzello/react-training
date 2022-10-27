@@ -1,26 +1,28 @@
-import { useSelector, useDispatch } from "react-redux"
-import { createSelector } from "reselect";
-import { depositAction } from "../../reducers/amount.reducer";
+import { useContext, useEffect } from "react";
+import { useSelector, useDispatch, shallowEqual, ReactReduxContext, } from "react-redux"
+import { deposit, selectBalanceValue, withdraw } from "../../reducers/amount.reducer";
 
-const selectAmountValue = createSelector(
-    (state) => state.amount,
-    (amount) => amount.value
-)
 
 export function Amount() {
-    const value = useSelector(selectAmountValue);
+    const xxxx = useSelector(selectBalanceValue);
+
 
     const dispatch = useDispatch()
 
-    const deposit = () => {
-        dispatch(depositAction(10))
+    const onDeposit = () => {
+        dispatch(deposit(10))
+    }
+
+    const onWithdraw = () => {
+        dispatch(withdraw(10))
     }
 
     return (
         <div>
-            current amount with selector: <strong>{value}</strong>
+            current amount with selector: <strong>{xxxx}</strong>
             <hr />
-            <button onClick={deposit}>Deposit 10</button>
+            <button onClick={onDeposit}>Deposit 10</button>
+            <button onClick={onWithdraw}>Withdraw 10</button>
         </div>
     )
 }

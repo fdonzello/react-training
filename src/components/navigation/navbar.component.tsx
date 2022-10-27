@@ -30,7 +30,7 @@ export const NavBar = ({ config }: { config: NavBarProps }) => {
 
 const NavBarItem = ({ path, label }: { path: string, label: string }) =>
     <li>
-        <NavLink to={path} activeClassName="uk-active">
+        <NavLink to={path} className="uk-active">
             {label}
         </NavLink>
     </li>

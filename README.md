@@ -8,7 +8,7 @@ For running a fake API server
 
 ### `yarn json-server`
 
-Open [http://localhost:3001](http://localhost:3001) to see what's delivered.
+Open [http://localhost:3250](http://localhost:3250) to see what's delivered.
 
 ## Running the app
 

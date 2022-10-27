@@ -1,5 +1,5 @@
 import { SyntheticEvent, useEffect } from "react";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useInputChange } from "../../forms";
 import './news-form.scss';
 
@@ -29,7 +29,7 @@ const isFormValid = (formValue: any): { errors?: any, valid: boolean } => {
 }
 
 export function NewsForm() {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [title, setTitle, onChangeTitle] = useInputChange('title', '')
     const [description, setDescription, onChangeDescription] = useInputChange('description', '');
@@ -53,8 +53,8 @@ export function NewsForm() {
         e.preventDefault();
 
         const url = isEdit ?
-            `http://localhost:3001/news/${id}` :
-            'http://localhost:3001/news';
+            `http://localhost:3250/news/${id}` :
+            'http://localhost:3250/news';
 
         const req = await fetch(url, {
             method: isEdit ? 'PUT' : 'POST',
@@ -69,7 +69,7 @@ export function NewsForm() {
             return
         }
 
-        history.replace('/news');
+        navigate('/news');
     }
 
     return (
@@ -117,7 +117,7 @@ const useNewsLoader = (setTitle: (v: string) => void, setDescription: (v: string
                 return
             }
 
-            const newsRequest = await fetch(`http://localhost:3001/news/${id}`);
+            const newsRequest = await fetch(`http://localhost:3250/news/${id}`);
 
             if (!newsRequest.ok) {
                 console.error('failed to fetch the news')

@@ -1,5 +1,3 @@
-import { SyntheticEvent, useEffect } from "react";
-import { useHistory, useLocation, useParams } from "react-router-dom";
 import { useInputChange } from "../../forms";
 import './news-form.scss';
 
